@@ -1,0 +1,297 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    PYC
+
+Grammar
+
+Rule 0     S' -> instruccion
+Rule 1     instruccion -> expresion
+Rule 2     expresion -> expresion MAS expresion
+Rule 3     expresion -> expresion MENOS expresion
+Rule 4     expresion -> expresion POR expresion
+Rule 5     expresion -> expresion DIVIDIDO expresion
+Rule 6     expresion -> PARA expresion PARC
+Rule 7     expresion -> ENTERO
+Rule 8     expresion -> DECIMAL
+
+Terminals, with rules where they appear
+
+DECIMAL              : 8
+DIVIDIDO             : 5
+ENTERO               : 7
+MAS                  : 2
+MENOS                : 3
+PARA                 : 6
+PARC                 : 6
+POR                  : 4
+PYC                  : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+expresion            : 1 2 2 3 3 4 4 5 5 6
+instruccion          : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . instruccion
+    (1) instruccion -> . expresion
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    instruccion                    shift and go to state 1
+    expresion                      shift and go to state 2
+
+state 1
+
+    (0) S' -> instruccion .
+
+
+
+state 2
+
+    (1) instruccion -> expresion .
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    $end            reduce using rule 1 (instruccion -> expresion .)
+    MAS             shift and go to state 6
+    MENOS           shift and go to state 7
+    POR             shift and go to state 8
+    DIVIDIDO        shift and go to state 9
+
+
+state 3
+
+    (6) expresion -> PARA . expresion PARC
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    expresion                      shift and go to state 10
+
+state 4
+
+    (7) expresion -> ENTERO .
+
+    MAS             reduce using rule 7 (expresion -> ENTERO .)
+    MENOS           reduce using rule 7 (expresion -> ENTERO .)
+    POR             reduce using rule 7 (expresion -> ENTERO .)
+    DIVIDIDO        reduce using rule 7 (expresion -> ENTERO .)
+    $end            reduce using rule 7 (expresion -> ENTERO .)
+    PARC            reduce using rule 7 (expresion -> ENTERO .)
+
+
+state 5
+
+    (8) expresion -> DECIMAL .
+
+    MAS             reduce using rule 8 (expresion -> DECIMAL .)
+    MENOS           reduce using rule 8 (expresion -> DECIMAL .)
+    POR             reduce using rule 8 (expresion -> DECIMAL .)
+    DIVIDIDO        reduce using rule 8 (expresion -> DECIMAL .)
+    $end            reduce using rule 8 (expresion -> DECIMAL .)
+    PARC            reduce using rule 8 (expresion -> DECIMAL .)
+
+
+state 6
+
+    (2) expresion -> expresion MAS . expresion
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    expresion                      shift and go to state 11
+
+state 7
+
+    (3) expresion -> expresion MENOS . expresion
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    expresion                      shift and go to state 12
+
+state 8
+
+    (4) expresion -> expresion POR . expresion
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    expresion                      shift and go to state 13
+
+state 9
+
+    (5) expresion -> expresion DIVIDIDO . expresion
+    (2) expresion -> . expresion MAS expresion
+    (3) expresion -> . expresion MENOS expresion
+    (4) expresion -> . expresion POR expresion
+    (5) expresion -> . expresion DIVIDIDO expresion
+    (6) expresion -> . PARA expresion PARC
+    (7) expresion -> . ENTERO
+    (8) expresion -> . DECIMAL
+
+    PARA            shift and go to state 3
+    ENTERO          shift and go to state 4
+    DECIMAL         shift and go to state 5
+
+    expresion                      shift and go to state 14
+
+state 10
+
+    (6) expresion -> PARA expresion . PARC
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    PARC            shift and go to state 15
+    MAS             shift and go to state 6
+    MENOS           shift and go to state 7
+    POR             shift and go to state 8
+    DIVIDIDO        shift and go to state 9
+
+
+state 11
+
+    (2) expresion -> expresion MAS expresion .
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    MAS             reduce using rule 2 (expresion -> expresion MAS expresion .)
+    MENOS           reduce using rule 2 (expresion -> expresion MAS expresion .)
+    $end            reduce using rule 2 (expresion -> expresion MAS expresion .)
+    PARC            reduce using rule 2 (expresion -> expresion MAS expresion .)
+    POR             shift and go to state 8
+    DIVIDIDO        shift and go to state 9
+
+  ! POR             [ reduce using rule 2 (expresion -> expresion MAS expresion .) ]
+  ! DIVIDIDO        [ reduce using rule 2 (expresion -> expresion MAS expresion .) ]
+  ! MAS             [ shift and go to state 6 ]
+  ! MENOS           [ shift and go to state 7 ]
+
+
+state 12
+
+    (3) expresion -> expresion MENOS expresion .
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    MAS             reduce using rule 3 (expresion -> expresion MENOS expresion .)
+    MENOS           reduce using rule 3 (expresion -> expresion MENOS expresion .)
+    $end            reduce using rule 3 (expresion -> expresion MENOS expresion .)
+    PARC            reduce using rule 3 (expresion -> expresion MENOS expresion .)
+    POR             shift and go to state 8
+    DIVIDIDO        shift and go to state 9
+
+  ! POR             [ reduce using rule 3 (expresion -> expresion MENOS expresion .) ]
+  ! DIVIDIDO        [ reduce using rule 3 (expresion -> expresion MENOS expresion .) ]
+  ! MAS             [ shift and go to state 6 ]
+  ! MENOS           [ shift and go to state 7 ]
+
+
+state 13
+
+    (4) expresion -> expresion POR expresion .
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    MAS             reduce using rule 4 (expresion -> expresion POR expresion .)
+    MENOS           reduce using rule 4 (expresion -> expresion POR expresion .)
+    POR             reduce using rule 4 (expresion -> expresion POR expresion .)
+    DIVIDIDO        reduce using rule 4 (expresion -> expresion POR expresion .)
+    $end            reduce using rule 4 (expresion -> expresion POR expresion .)
+    PARC            reduce using rule 4 (expresion -> expresion POR expresion .)
+
+  ! MAS             [ shift and go to state 6 ]
+  ! MENOS           [ shift and go to state 7 ]
+  ! POR             [ shift and go to state 8 ]
+  ! DIVIDIDO        [ shift and go to state 9 ]
+
+
+state 14
+
+    (5) expresion -> expresion DIVIDIDO expresion .
+    (2) expresion -> expresion . MAS expresion
+    (3) expresion -> expresion . MENOS expresion
+    (4) expresion -> expresion . POR expresion
+    (5) expresion -> expresion . DIVIDIDO expresion
+
+    MAS             reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+    MENOS           reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+    POR             reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+    DIVIDIDO        reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+    $end            reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+    PARC            reduce using rule 5 (expresion -> expresion DIVIDIDO expresion .)
+
+  ! MAS             [ shift and go to state 6 ]
+  ! MENOS           [ shift and go to state 7 ]
+  ! POR             [ shift and go to state 8 ]
+  ! DIVIDIDO        [ shift and go to state 9 ]
+
+
+state 15
+
+    (6) expresion -> PARA expresion PARC .
+
+    MAS             reduce using rule 6 (expresion -> PARA expresion PARC .)
+    MENOS           reduce using rule 6 (expresion -> PARA expresion PARC .)
+    POR             reduce using rule 6 (expresion -> PARA expresion PARC .)
+    DIVIDIDO        reduce using rule 6 (expresion -> PARA expresion PARC .)
+    $end            reduce using rule 6 (expresion -> PARA expresion PARC .)
+    PARC            reduce using rule 6 (expresion -> PARA expresion PARC .)
+
