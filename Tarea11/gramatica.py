@@ -115,7 +115,6 @@ def p_error(t):
 import ply.yacc as yacc
 parser = yacc.yacc()
 
-
 f = open("./entrada.txt", "r")
 input = f.read()
 print("Entrada: "+input)
