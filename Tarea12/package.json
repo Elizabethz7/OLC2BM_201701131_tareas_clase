@@ -1,0 +1,22 @@
+{
+  "name": "Tarea12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -w",
+    "dev": "nodemon build/index.js",
+    "jison": "jison ./src/Grammar/Grammar.jison && mv Grammar.js ./src/Grammar/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.6.3",
+    "jison": "^0.4.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
