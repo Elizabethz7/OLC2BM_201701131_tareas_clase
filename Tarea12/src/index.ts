@@ -1,4 +1,3 @@
-//-w en tsc sirve para que este en espera de cambios
 const parser = require('./Grammar/Grammar');
 console.time('loop');
 const ast = parser.parse('10+20*70*80+23');
